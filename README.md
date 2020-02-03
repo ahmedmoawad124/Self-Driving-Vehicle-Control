@@ -1,4 +1,7 @@
 # Self-Driving-Vehicle-Control
+This poject is the final project assignment of introduction to Self Driving Cars course offered by University of Toronto on Coursera. The "controller2d.py" file contains a controller object. I implemented the controller in the update_controls method.
+[video]
+https://www.youtube.com/watch?v=Pu3B4sGw5uc&pbjreload=10
 ## Self Driving Cars Longitudinal and Lateral Control Design
 In this project, I implemented a controller in Python and use it to drive a car autonomously around a track in Carla Simulator.
 The output of the controller will be the vehicle throttle, brake and steering angle commands.
