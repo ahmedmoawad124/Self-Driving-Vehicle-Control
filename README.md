@@ -3,9 +3,9 @@ This poject is the final project assignment of introduction to Self Driving Cars
 [video]
 https://www.youtube.com/watch?v=Pu3B4sGw5uc&pbjreload=10
 ## Self Driving Cars Longitudinal and Lateral Control Design
-In this project, I implemented a controller in Python and use it to drive a car autonomously around a track in Carla Simulator.
+In this project, I implemented a controller in Python and used it to drive a car autonomously around a track in Carla Simulator.
 The output of the controller will be the vehicle throttle, brake and steering angle commands.
-The throttle and brake come from the Longitudinal speed control and the steering comes from our Lateral Control.
+The throttle and brake come from the Longitudinal speed control and the steering comes from the Lateral Control.
 
 ### 1. Longitudinal Control
 
@@ -15,7 +15,7 @@ For longitudinal control I implemented a PID Controller, This PID controller wil
 
 a PID controller consists of three components. First, a pure gain Kp that scales the vehicle acceleration based on the speed error. This ensures that the vehicle is accelerating in the correct direction with the magnitude proportional to the error.
 
-Second in integral term KI sets up the output based on accumulated past errors. This ensures the steady steed errors are eliminated for ramp referencing.
+Second, in integral term KI sets up the output based on accumulated past errors. This ensures the steady steed errors are eliminated for ramp referencing.
 
 Finally, the derivative term KD dampens the overshoot caused by the integration term.
 
@@ -40,9 +40,9 @@ Proportional = kp * e_current
 ```
 
 #### I - Integral part
-- Think of the integral  as a basket in which the loop stores all measured errors in E. Remember that error can be positive or negative, so sometimes error fills the basket (when positive error is added to positive error or negative error is added to negative) and sometimes it empties the basket — as when positive error is added to negative, or vice versa.
+- Think of the integral as a basket in which the loop stores all measured errors in E. Remember that error can be positive or negative, so sometimes error fills the basket (when positive error is added to positive error or negative error is added to negative) and sometimes it empties the basket — as when positive error is added to negative, or vice versa.
 - collect all of these errors over time (take integral over time).
-- Interal part = Ki * E  
+- Integral part = Ki * E  
   where E = E + e(current) * ∆t,         the loop stores all measured errors in E
 
 ```
@@ -50,13 +50,13 @@ Proportional = kp * e_current
 self.vars.E = self.vars.E + e_current * delta_t 
 integral = ki * self.vars.E
 ```
-#### D - Derevative part
+#### D - Derivative part
 - the derivative is looking at the rate of change of the error. The more error changes, the larger the derivative factor becomes.
 - Kd have to be less than 1.
-- Derevative part = Kd * ((e(current) - e(previous)) / ∆t)
+- Derivative part = Kd * ((e(current) - e(previous)) / ∆t)
 
 ```
-# derivate part
+# derivative part
 if delta_t == 0:
   derivate = 0
 else:
