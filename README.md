@@ -85,3 +85,22 @@ The steady state error: The error between te output and the reference at steady 
 
 ![image](https://user-images.githubusercontent.com/59261333/73613341-3e26e400-45fd-11ea-8985-d059e340796e.png)
 
+### 2. Lateral Control
+
+For lateral control, I implemented the Stanley controller. The Stanley method is the path tracking approach used by Stanford University’s autonomous vehicle entry in the DARPA Grand Challenge, Stanley. The Stanley method is a nonlinear feedback function of the cross track error, measured from the center of the front axle to the nearest path point.
+
+![image](https://user-images.githubusercontent.com/59261333/73640204-833b2c80-4676-11ea-8620-077d8c2961f4.png)
+
+- e: Cross track error
+- θ_c: Heading of the vehicle (Yaw).
+- ψ + θ_c: Heading of the path (path Yaw).
+- ψ: Heading error.
+- δ: Stearing angle.
+- v: Current forward speed (meters per second).
+- x_c: Current X position (meters)
+- y_c: Current Y position (meters)
+##### The resulting steering control law is given as
+![image](https://user-images.githubusercontent.com/59261333/73640845-a9150100-4677-11ea-8c9c-4e0e5f906bec.png)
+
+When e is non-zero, the second term adjusts δ such that the intended trajectory intersects the path tangent at kv(t) units from the front axle.
+
